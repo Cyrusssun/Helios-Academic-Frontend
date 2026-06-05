@@ -1,10 +1,14 @@
 ---
-layout: home
+layout: single
 ---
 
 <style>
 /* ── RESET MINIMAL MISTAKES CONSTRAINTS ── */
-.page__content, .page, #main { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+.page__content, .page, #main, .page__inner-wrap, .page__hero { 
+  max-width: none !important; 
+  padding: 0 !important; 
+  margin: 0 !important; 
+}
 .page__title, .page__meta { display: none; }
 
 :root {
@@ -28,11 +32,8 @@ html, body { background: var(--bg); color: var(--text); font-family: -apple-syst
 
 /* ── HERO ── */
 .ap-hero {
-  background: linear-gradient(135deg, var(--slate) 0%, var(--blue2) 100%);
-  padding: 80px 24px 72px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  margin-top: 0 !important;
+  padding-top: 80px;
 }
 .ap-hero::before {
   content: '';
