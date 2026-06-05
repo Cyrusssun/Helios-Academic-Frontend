@@ -1,205 +1,288 @@
 ---
-layout: single
-title: Login
-permalink: /login/
+layout: home
 ---
 
 <style>
-.page__title{display:none;}
-#main{max-width:none!important;padding:0!important;}
-.page__content{max-width:none!important;padding:0!important;}
-:root{--blue:#1a56db;--slate:#0f172a;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc;--white:#ffffff;--text:#0f172a;--red:#dc2626;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{background:var(--bg);font-family:-apple-system,'Segoe UI',sans-serif;}
+/* ── RESET MINIMAL MISTAKES CONSTRAINTS ── */
+.page__content, .page, #main { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+.page__title, .page__meta { display: none; }
 
-.lg-page{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;}
-@media(max-width:768px){.lg-page{grid-template-columns:1fr;}}
-
-/* Left panel */
-.lg-left{
-  background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);
-  padding:60px 48px;display:flex;flex-direction:column;justify-content:center;
-  position:relative;overflow:hidden;
+:root {
+  --blue:   #1a56db;
+  --blue2:  #1e429f;
+  --indigo: #4338ca;
+  --teal:   #0d9488;
+  --slate:  #0f172a;
+  --slate2: #1e293b;
+  --slate3: #334155;
+  --muted:  #64748b;
+  --border: #e2e8f0;
+  --bg:     #f8fafc;
+  --white:  #ffffff;
+  --text:   #0f172a;
+  --gold:   #f59e0b;
 }
-.lg-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,0.25) 0%,transparent 60%);pointer-events:none;}
-.lg-brand{display:flex;align-items:center;gap:12px;margin-bottom:48px;}
-.lg-brand-icon{width:40px;height:40px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;}
-.lg-brand-name{font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.02em;}
-.lg-left h1{font-size:clamp(28px,3.5vw,42px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:16px;letter-spacing:-0.02em;}
-.lg-left h1 span{color:#818cf8;}
-.lg-left p{font-size:15px;color:#94a3b8;line-height:1.7;margin-bottom:40px;}
-.lg-feature{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.lg-feature-dot{width:8px;height:8px;border-radius:50%;background:#818cf8;flex-shrink:0;}
-.lg-feature span{font-size:14px;color:#cbd5e1;}
 
-/* Right panel */
-.lg-right{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:40px 24px;}
-.lg-form-wrap{width:100%;max-width:400px;}
-.lg-tabs{display:flex;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:28px;}
-.lg-tab{flex:1;padding:9px;border:none;background:none;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);transition:all 0.15s;}
-.lg-tab.active{background:var(--blue);color:#fff;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', sans-serif; }
 
-.lg-form{display:none;}
-.lg-form.show{display:block;}
-.lg-form h2{font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px;}
-.lg-form p{font-size:13px;color:var(--muted);margin-bottom:24px;}
+/* ── HERO ── */
+.ap-hero {
+  background: linear-gradient(135deg, var(--slate) 0%, var(--blue2) 100%);
+  padding: 80px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ap-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 0%, rgba(99,102,241,0.3) 0%, transparent 60%);
+  pointer-events: none;
+}
+.ap-hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #a5b4fc;
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 5px 16px; border-radius: 20px; margin-bottom: 20px;
+}
+.ap-hero h1 {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800; color: #fff;
+  line-height: 1.05; margin-bottom: 16px; letter-spacing: -0.02em;
+}
+.ap-hero h1 span { color: #818cf8; }
+.ap-hero p {
+  font-size: 18px; color: #94a3b8;
+  max-width: 560px; margin: 0 auto 36px; line-height: 1.7;
+}
+.ap-hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.ap-btn-primary {
+  padding: 14px 32px;
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.ap-btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+.ap-btn-secondary {
+  padding: 14px 32px;
+  background: rgba(255,255,255,0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.ap-btn-secondary:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
 
-.lg-field{margin-bottom:16px;}
-.lg-field label{display:block;font-size:12px;font-weight:600;color:var(--text);margin-bottom:6px;letter-spacing:0.02em;}
-.lg-field input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;color:var(--text);background:var(--white);transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
-.lg-field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,0.1);}
-.lg-field input.error{border-color:var(--red);}
+/* ── STATS BAR ── */
+.ap-stats {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 24px;
+  display: flex; justify-content: center; gap: 60px;
+  flex-wrap: wrap;
+}
+.ap-stat { text-align: center; }
+.ap-stat-num { font-size: 30px; font-weight: 800; color: var(--blue); }
+.ap-stat-label { font-size: 12px; color: var(--muted); margin-top: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
 
-.lg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.lg-forgot{font-size:12px;color:var(--blue);text-decoration:none;float:right;margin-top:-10px;margin-bottom:16px;display:block;}
-.lg-forgot:hover{text-decoration:underline;}
+/* ── SECTION ── */
+.ap-section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+.ap-section-header { text-align: center; margin-bottom: 40px; }
+.ap-section-header h2 { font-size: 30px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.ap-section-header p { font-size: 15px; color: var(--muted); }
 
-.lg-submit{width:100%;padding:12px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s,transform 0.15s;margin-bottom:12px;}
-.lg-submit:hover{background:#1d4ed8;transform:translateY(-1px);}
+/* ── SUBJECT CARDS ── */
+.ap-subjects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.ap-subject-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: block;
+  border-top: 3px solid var(--blue);
+}
+.ap-subject-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: var(--blue); }
+.ap-subject-card.math  { border-top-color: #6366f1; }
+.ap-subject-card.sci   { border-top-color: #0d9488; }
+.ap-subject-card.hist  { border-top-color: #b45309; }
+.ap-subject-card.eng   { border-top-color: #7c3aed; }
+.ap-subject-card.cs    { border-top-color: #1a56db; }
+.ap-subject-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+.ap-subject-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.ap-subject-count { font-size: 12px; color: var(--muted); }
+.ap-subject-tag {
+  display: inline-block; margin-top: 10px;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px;
+  background: #eff6ff; color: var(--blue);
+}
+.ap-subject-tag.popular { background: #fef3c7; color: #92400e; }
 
-.lg-divider{display:flex;align-items:center;gap:12px;margin:16px 0;}
-.lg-divider::before,.lg-divider::after{content:'';flex:1;height:1px;background:var(--border);}
-.lg-divider span{font-size:12px;color:var(--muted);}
+/* ── FEATURES ── */
+.ap-features {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 0;
+}
+@media(max-width:768px){ .ap-features { grid-template-columns: 1fr; } }
+.ap-feature {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.ap-feature-icon {
+  width: 44px; height: 44px;
+  background: #eff6ff; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin-bottom: 14px;
+}
+.ap-feature h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.ap-feature p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-.lg-google{width:100%;padding:11px;background:var(--white);color:var(--text);border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.lg-google:hover{border-color:#94a3b8;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-
-.lg-feedback{padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;display:none;}
-.lg-feedback.ok{background:#f0fdf4;border:1px solid #bbf7d0;color:#065f46;display:block;}
-.lg-feedback.err{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;display:block;}
-
-.lg-switch{font-size:13px;color:var(--muted);text-align:center;margin-top:16px;}
-.lg-switch a{color:var(--blue);text-decoration:none;font-weight:600;}
-.lg-switch a:hover{text-decoration:underline;}
+/* ── CTA ── */
+.ap-cta {
+  background: linear-gradient(135deg, var(--blue2), var(--indigo));
+  border-radius: 16px;
+  padding: 52px 40px;
+  text-align: center;
+  margin: 0 24px 60px;
+  max-width: 1052px;
+  margin-left: auto; margin-right: auto;
+}
+.ap-cta h2 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.ap-cta p  { font-size: 15px; color: #bfdbfe; margin-bottom: 24px; }
 </style>
 
-<div class="lg-page">
-
-  <!-- Left: branding -->
-  <div class="lg-left">
-    <div class="lg-brand">
-      <div class="lg-brand-icon">AP</div>
-      <div class="lg-brand-name">APPrep</div>
-    </div>
-    <h1>Study smarter.<br><span>Score higher.</span></h1>
-    <p>Join 12,000+ students using APPrep to prepare for their AP exams with targeted practice and instant feedback.</p>
-    <div class="lg-feature"><div class="lg-feature-dot"></div><span>2,400+ practice questions across 10 AP subjects</span></div>
-    <div class="lg-feature"><div class="lg-feature-dot"></div><span>Detailed explanations for every answer choice</span></div>
-    <div class="lg-feature"><div class="lg-feature-dot"></div><span>Track your progress by unit and difficulty</span></div>
-    <div class="lg-feature"><div class="lg-feature-dot"></div><span>Free to use — no credit card required</span></div>
+<!-- HERO -->
+<div class="ap-hero">
+  <div class="ap-hero-badge">Free AP Practice · 10 Subjects · 2,000+ Questions</div>
+  <h1>Master your <span>AP Exams</span><br>with confidence</h1>
+  <p>Targeted practice questions, instant feedback, and performance analytics — built for AP students who want results.</p>
+  <div class="ap-hero-btns">
+    <a href="/practice/" class="ap-btn-primary">Start Practicing →</a>
+    <a href="/courses/" class="ap-btn-secondary">Browse Courses</a>
   </div>
+</div>
 
-  <!-- Right: form -->
-  <div class="lg-right">
-    <div class="lg-form-wrap">
+<!-- STATS -->
+<div class="ap-stats">
+  <div class="ap-stat"><div class="ap-stat-num">2,400+</div><div class="ap-stat-label">Practice Questions</div></div>
+  <div class="ap-stat"><div class="ap-stat-num">10</div><div class="ap-stat-label">AP Subjects</div></div>
+  <div class="ap-stat"><div class="ap-stat-num">12,000+</div><div class="ap-stat-label">Students Enrolled</div></div>
+  <div class="ap-stat"><div class="ap-stat-num">78%</div><div class="ap-stat-label">Score 4 or 5</div></div>
+</div>
 
-      <div class="lg-tabs">
-        <button class="lg-tab active" onclick="switchTab('login')">Sign In</button>
-        <button class="lg-tab" onclick="switchTab('signup')">Create Account</button>
-      </div>
+<!-- SUBJECT CARDS -->
+<div class="ap-section">
+  <div class="ap-section-header">
+    <h2>Choose Your Subject</h2>
+    <p>Pick any AP course to start practicing. Questions are organized by unit and difficulty.</p>
+  </div>
+  <div class="ap-subjects">
+    <a href="/practice/?subject=calc-bc" class="ap-subject-card math">
+      <span class="ap-subject-icon">∫</span>
+      <div class="ap-subject-name">AP Calculus BC</div>
+      <div class="ap-subject-count">320 questions · 8 units</div>
+      <span class="ap-subject-tag popular">🔥 Popular</span>
+    </a>
+    <a href="/practice/?subject=calc-ab" class="ap-subject-card math">
+      <span class="ap-subject-icon">∂</span>
+      <div class="ap-subject-name">AP Calculus AB</div>
+      <div class="ap-subject-count">280 questions · 8 units</div>
+      <span class="ap-subject-tag">Math</span>
+    </a>
+    <a href="/practice/?subject=stats" class="ap-subject-card math">
+      <span class="ap-subject-icon">σ</span>
+      <div class="ap-subject-name">AP Statistics</div>
+      <div class="ap-subject-count">260 questions · 9 units</div>
+      <span class="ap-subject-tag">Math</span>
+    </a>
+    <a href="/practice/?subject=physics-c" class="ap-subject-card sci">
+      <span class="ap-subject-icon">⚡</span>
+      <div class="ap-subject-name">AP Physics C</div>
+      <div class="ap-subject-count">240 questions · 6 units</div>
+      <span class="ap-subject-tag popular">🔥 Popular</span>
+    </a>
+    <a href="/practice/?subject=chem" class="ap-subject-card sci">
+      <span class="ap-subject-icon">⚗️</span>
+      <div class="ap-subject-name">AP Chemistry</div>
+      <div class="ap-subject-count">300 questions · 9 units</div>
+      <span class="ap-subject-tag">Science</span>
+    </a>
+    <a href="/practice/?subject=bio" class="ap-subject-card sci">
+      <span class="ap-subject-icon">🧬</span>
+      <div class="ap-subject-name">AP Biology</div>
+      <div class="ap-subject-count">290 questions · 8 units</div>
+      <span class="ap-subject-tag">Science</span>
+    </a>
+    <a href="/practice/?subject=csa" class="ap-subject-card cs">
+      <span class="ap-subject-icon">💻</span>
+      <div class="ap-subject-name">AP Computer Science A</div>
+      <div class="ap-subject-count">220 questions · 10 units</div>
+      <span class="ap-subject-tag popular">🔥 Popular</span>
+    </a>
+    <a href="/practice/?subject=ush" class="ap-subject-card hist">
+      <span class="ap-subject-icon">🏛️</span>
+      <div class="ap-subject-name">AP US History</div>
+      <div class="ap-subject-count">310 questions · 9 periods</div>
+      <span class="ap-subject-tag">History</span>
+    </a>
+    <a href="/practice/?subject=lang" class="ap-subject-card eng">
+      <span class="ap-subject-icon">✍️</span>
+      <div class="ap-subject-name">AP English Language</div>
+      <div class="ap-subject-count">180 questions · 5 units</div>
+      <span class="ap-subject-tag">English</span>
+    </a>
+    <a href="/practice/?subject=econ" class="ap-subject-card hist">
+      <span class="ap-subject-icon">📈</span>
+      <div class="ap-subject-name">AP Macroeconomics</div>
+      <div class="ap-subject-count">200 questions · 6 units</div>
+      <span class="ap-subject-tag">Social Science</span>
+    </a>
+  </div>
+</div>
 
-      <!-- LOGIN -->
-      <div class="lg-form show" id="loginForm">
-        <h2>Welcome back</h2>
-        <p>Sign in to continue your practice sessions.</p>
-        <div class="lg-feedback" id="loginFeedback"></div>
-        <div class="lg-field">
-          <label>Email Address</label>
-          <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email">
-        </div>
-        <div class="lg-field">
-          <label>Password</label>
-          <input type="password" id="loginPass" placeholder="Enter your password" autocomplete="current-password">
-        </div>
-        <a href="#" class="lg-forgot">Forgot password?</a>
-        <button class="lg-submit" onclick="doLogin()">Sign In →</button>
-        <div class="lg-divider"><span>or</span></div>
-        <button class="lg-google" onclick="doGoogle()">
-          <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.2 0 5.9 1.1 8.1 3.2l6-6C34.3 3.1 29.5 1 24 1 14.8 1 7 6.6 3.7 14.4l7 5.4C12.4 13.9 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.3 5.7c4.3-4 6.8-9.9 7.2-16.8z"/><path fill="#FBBC05" d="M10.7 28.5c-.5-1.5-.8-3.1-.8-4.8s.3-3.2.8-4.7l-7-5.4C2.5 16.7 1.5 20.2 1.5 24s1 7.3 2.7 10.4l6.5-5.9z"/><path fill="#34A853" d="M24 47c5.4 0 9.9-1.8 13.2-4.8l-7.3-5.7c-1.8 1.2-4.1 2-5.9 2-6.2 0-11.5-4.2-13.4-9.9l-6.5 5.9C7 41.4 14.8 47 24 47z"/></svg>
-          Continue with Google
-        </button>
-        <div class="lg-switch">Don't have an account? <a href="#" onclick="switchTab('signup')">Create one free</a></div>
-      </div>
-
-      <!-- SIGNUP -->
-      <div class="lg-form" id="signupForm">
-        <h2>Create your account</h2>
-        <p>Free forever. No credit card needed.</p>
-        <div class="lg-feedback" id="signupFeedback"></div>
-        <div class="lg-row">
-          <div class="lg-field">
-            <label>First Name</label>
-            <input type="text" id="signupFirst" placeholder="Jane">
-          </div>
-          <div class="lg-field">
-            <label>Last Name</label>
-            <input type="text" id="signupLast" placeholder="Smith">
-          </div>
-        </div>
-        <div class="lg-field">
-          <label>Email Address</label>
-          <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email">
-        </div>
-        <div class="lg-field">
-          <label>Password</label>
-          <input type="password" id="signupPass" placeholder="At least 8 characters">
-        </div>
-        <div class="lg-field">
-          <label>I am a...</label>
-          <select id="signupRole" style="width:100%;padding:10px 14px;border:1px solid #e2e8f0;border-radius:8px;font-size:14px;color:#0f172a;background:#fff;outline:none;">
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-            <option value="parent">Parent</option>
-          </select>
-        </div>
-        <button class="lg-submit" onclick="doSignup()">Create Account →</button>
-        <div class="lg-divider"><span>or</span></div>
-        <button class="lg-google" onclick="doGoogle()">
-          <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.2 0 5.9 1.1 8.1 3.2l6-6C34.3 3.1 29.5 1 24 1 14.8 1 7 6.6 3.7 14.4l7 5.4C12.4 13.9 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.3 5.7c4.3-4 6.8-9.9 7.2-16.8z"/><path fill="#FBBC05" d="M10.7 28.5c-.5-1.5-.8-3.1-.8-4.8s.3-3.2.8-4.7l-7-5.4C2.5 16.7 1.5 20.2 1.5 24s1 7.3 2.7 10.4l6.5-5.9z"/><path fill="#34A853" d="M24 47c5.4 0 9.9-1.8 13.2-4.8l-7.3-5.7c-1.8 1.2-4.1 2-5.9 2-6.2 0-11.5-4.2-13.4-9.9l-6.5 5.9C7 41.4 14.8 47 24 47z"/></svg>
-          Sign up with Google
-        </button>
-        <div class="lg-switch">Already have an account? <a href="#" onclick="switchTab('login')">Sign in</a></div>
-      </div>
-
+<!-- FEATURES -->
+<div class="ap-section" style="padding-top: 0;">
+  <div class="ap-section-header">
+    <h2>Everything you need to score a 5</h2>
+    <p>Tools designed around how AP students actually study.</p>
+  </div>
+  <div class="ap-features">
+    <div class="ap-feature">
+      <div class="ap-feature-icon">⚡</div>
+      <h3>Instant Explanations</h3>
+      <p>Every question comes with a detailed explanation of why each answer choice is right or wrong — not just the answer key.</p>
+    </div>
+    <div class="ap-feature">
+      <div class="ap-feature-icon">📊</div>
+      <h3>Performance Analytics</h3>
+      <p>Track accuracy by unit and topic over time. See exactly where to focus your remaining study time before exam day.</p>
+    </div>
+    <div class="ap-feature">
+      <div class="ap-feature-icon">🎯</div>
+      <h3>Adaptive Difficulty</h3>
+      <p>Questions adapt to your performance — harder questions when you're doing well, targeted review when you're struggling.</p>
     </div>
   </div>
 </div>
 
-<script>
-function switchTab(tab) {
-  document.querySelectorAll('.lg-tab').forEach((t,i)=>t.classList.toggle('active',(i===0&&tab==='login')||(i===1&&tab==='signup')));
-  document.getElementById('loginForm').classList.toggle('show', tab==='login');
-  document.getElementById('signupForm').classList.toggle('show', tab==='signup');
-}
-
-function setFeedback(id, msg, type) {
-  const el = document.getElementById(id);
-  el.textContent = msg;
-  el.className = 'lg-feedback ' + type;
-}
-
-function doLogin() {
-  const email = document.getElementById('loginEmail').value.trim();
-  const pass  = document.getElementById('loginPass').value.trim();
-  if (!email || !pass) { setFeedback('loginFeedback','Please fill in all fields.','err'); return; }
-  if (!email.includes('@')) { setFeedback('loginFeedback','Please enter a valid email.','err'); return; }
-  // Simulate login
-  setFeedback('loginFeedback','Signing you in...','ok');
-  setTimeout(() => { window.location.href = '/practice/'; }, 800);
-}
-
-function doSignup() {
-  const first = document.getElementById('signupFirst').value.trim();
-  const last  = document.getElementById('signupLast').value.trim();
-  const email = document.getElementById('signupEmail').value.trim();
-  const pass  = document.getElementById('signupPass').value.trim();
-  if (!first||!last||!email||!pass) { setFeedback('signupFeedback','Please fill in all fields.','err'); return; }
-  if (pass.length < 8) { setFeedback('signupFeedback','Password must be at least 8 characters.','err'); return; }
-  setFeedback('signupFeedback',`Welcome, ${first}! Redirecting...`,'ok');
-  setTimeout(() => { window.location.href = '/practice/'; }, 1000);
-}
-
-function doGoogle() {
-  alert('Google OAuth would be configured here in production.');
-}
-</script>
+<!-- CTA -->
+<div class="ap-cta">
+  <h2>Ready to start?</h2>
+  <p>Create a free account and begin practicing in under a minute.</p>
+  <a href="/login/" class="ap-btn-primary" style="display:inline-block;">Create Free Account →</a>
+</div>
