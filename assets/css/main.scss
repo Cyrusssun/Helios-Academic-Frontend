@@ -1,29 +1,20 @@
 ---
 ---
-@charset "utf-8";
-@import "minimal-mistakes/skins/default";
-@import "minimal-mistakes";
-
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav {
   background: #1e3a8a !important;
-  border-bottom: none !important;
 }
-
 .greedy-nav a,
 .site-title {
   color: #ffffff !important;
 }
-
 .greedy-nav a:hover {
   color: #a5b4fc !important;
 }
-
 .greedy-nav__toggle svg {
   fill: #ffffff !important;
 }
-
 .search__toggle {
   color: #ffffff !important;
 }
