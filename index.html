@@ -4,12 +4,16 @@ layout: single
 
 <style>
 /* ── RESET MINIMAL MISTAKES CONSTRAINTS ── */
-.page__content, .page, #main, .page__inner-wrap, .page__hero { 
-  max-width: none !important; 
-  padding: 0 !important; 
-  margin: 0 !important; 
+.page__content, .page, #main, .page__inner-wrap, .initial-content {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
-.page__title, .page__meta { display: none; }
+
+.page__content {
+  float: none !important;
+}
 
 :root {
   --blue:   #1a56db;
