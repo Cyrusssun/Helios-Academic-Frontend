@@ -57,43 +57,50 @@ title: AP Calculus BC
 .unit-arrow { color: #94a3b8; font-size: 16px; }
 
 /* Modal */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 9999;
-  align-items: center; justify-content: center;
+.course-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,.55);
+
+  z-index: 999999 !important;
+
+  align-items: center;
+  justify-content: center;
 }
-.modal-overlay.show { display: flex; }
-.modal {
-  background: white; border-radius: 16px;
-  padding: 40px 36px; max-width: 420px; width: 90%;
-  text-align: center; position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+
+.course-modal-overlay.show {
+  display: flex;
 }
-.modal-icon { font-size: 40px; margin-bottom: 12px; }
-.modal h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #0f172a; }
-.modal p { font-size: 14px; color: #64748b; margin-bottom: 24px; line-height: 1.6; }
-.modal-price { font-size: 32px; font-weight: 800; color: #1a56db; margin-bottom: 8px; }
-.modal-price-sub { font-size: 12px; color: #94a3b8; margin-bottom: 24px; }
-.modal-btn {
-  display: block; width: 100%;
-  padding: 13px; background: #1a56db; color: white;
-  border: none; border-radius: 8px;
-  font-size: 15px; font-weight: 600; cursor: pointer;
-  margin-bottom: 10px; text-decoration: none;
-  transition: background 0.2s;
+
+.course-modal {
+  background: #fff !important;
+
+  width: 420px;
+  max-width: 90vw;
+
+  padding: 40px 36px;
+
+  border-radius: 16px;
+
+  position: relative;
+
+  z-index: 1000000 !important;
+
+  display: block !important;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+  text-align: center;
 }
-.modal-btn:hover { background: #1d4ed8; color: white; }
-.modal-btn.secondary {
-  background: #f1f5f9; color: #0f172a;
-}
-.modal-btn.secondary:hover { background: #e2e8f0; color: #0f172a; }
-.modal-close {
-  position: absolute; top: 16px; right: 18px;
-  font-size: 20px; cursor: pointer; color: #94a3b8;
-  background: none; border: none; padding: 4px;
-}
-.modal-close:hover { color: #0f172a; }
 </style>
 
 <div class="course-header">
@@ -109,21 +116,20 @@ title: AP Calculus BC
 <div class="course-body">
   <div class="course-section-title">Course Units</div>
 
-  <div class="unit-item free" onclick="openUnit(false, 'Unit 1: Limits and Continuity')">
+  <div class="unit-item locked" onclick="openUnit('Unit 1: Limits and Continuity')">
     <div class="unit-left">
       <div class="unit-num">1</div>
       <div class="unit-info">
-        <div class="unit-title">Unit 1: Limits and Continuity <span class="unit-free-badge">FREE</span></div>
+        <div class="unit-title">Unit 1: Limits and Continuity</div>
         <div class="unit-sub">15 questions · Squeeze theorem, IVT, limit definition</div>
       </div>
     </div>
     <div class="unit-right">
-      <span class="unit-lock">🔓</span>
-      <span class="unit-arrow">›</span>
+      <span class="unit-lock">🔒</span>
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 2: Differentiation')">
+  <div class="unit-item locked" onclick="openUnit('Unit 2: Differentiation')">
     <div class="unit-left">
       <div class="unit-num">2</div>
       <div class="unit-info">
@@ -136,7 +142,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 3: Applications of Derivatives')">
+  <div class="unit-item locked" onclick="openUnit('Unit 3: Applications of Derivatives')">
     <div class="unit-left">
       <div class="unit-num">3</div>
       <div class="unit-info">
@@ -149,7 +155,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 4: Integration')">
+  <div class="unit-item locked" onclick="openUnit('Unit 4: Integration')">
     <div class="unit-left">
       <div class="unit-num">4</div>
       <div class="unit-info">
@@ -162,7 +168,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 5: Applications of Integration')">
+  <div class="unit-item locked" onclick="openUnit('Unit 5: Applications of Integration')">
     <div class="unit-left">
       <div class="unit-num">5</div>
       <div class="unit-info">
@@ -175,7 +181,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 6: Differential Equations')">
+  <div class="unit-item locked" onclick="openUnit('Unit 6: Differential Equations')">
     <div class="unit-left">
       <div class="unit-num">6</div>
       <div class="unit-info">
@@ -188,7 +194,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 7: Parametric, Polar & Vectors')">
+  <div class="unit-item locked" onclick="openUnit('Unit 7: Parametric, Polar & Vectors')">
     <div class="unit-left">
       <div class="unit-num">7</div>
       <div class="unit-info">
@@ -201,7 +207,7 @@ title: AP Calculus BC
     </div>
   </div>
 
-  <div class="unit-item locked" onclick="openUnit(true, 'Unit 8: Infinite Sequences & Series')">
+  <div class="unit-item locked" onclick="openUnit('Unit 8: Infinite Sequences & Series')">
     <div class="unit-left">
       <div class="unit-num">8</div>
       <div class="unit-info">
@@ -216,41 +222,67 @@ title: AP Calculus BC
 </div>
 
 <!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
+<div class="course-modal-overlay" id="modal">
+  <div class="course-modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div id="modal-content"></div>
   </div>
 </div>
 
 <script>
-const loggedIn = false;
+const loggedIn = false; // false=未登录，true=已登录
 
-function openUnit(locked, unitName) {
-  if (!locked) {
-    window.location.href = '/practice/?subject=calc-bc';
+function openUnit(unitName) {
+  const content = document.getElementById('modal-content');
+
+  if (!content) {
+    console.error('modal-content not found');
     return;
   }
-  const content = document.getElementById('modal-content');
+
   if (!loggedIn) {
     content.innerHTML = `
       <div class="modal-icon">🔒</div>
-      <h3>Login to Purchase</h3>
-      <p>Create a free account or log in to unlock <strong>${unitName}</strong> and all other units in this course.</p>
-      <a href="/login/" class="modal-btn">Log In</a>
-      <a href="/login/" class="modal-btn secondary">Create Free Account</a>
+
+      <h3>Login Required</h3>
+
+      <p>
+        Please log in or create an account to purchase
+        <strong>${unitName}</strong>.
+      </p>
+
+      <a href="/login/" class="modal-btn">
+        Log In
+      </a>
     `;
   } else {
     content.innerHTML = `
       <div class="modal-icon">🎓</div>
-      <h3>Unlock AP Calculus BC</h3>
-      <p>Get full access to all 8 units — 320 practice questions with detailed step-by-step explanations.</p>
-      <div class="modal-price">$29.99</div>
-      <div class="modal-price-sub">One-time purchase · Lifetime access</div>
-      <button class="modal-btn" onclick="fakePurchase()">Purchase Now →</button>
-      <button class="modal-btn secondary" onclick="closeModal()">Maybe Later</button>
+
+      <h3>Unlock ${unitName}</h3>
+
+      <p>
+        Purchase this unit and get lifetime access.
+      </p>
+
+      <div class="modal-price">
+        $9.99
+      </div>
+
+      <div class="modal-price-sub">
+        One-time purchase · Lifetime access
+      </div>
+
+      <button class="modal-btn" onclick="fakePurchase()">
+        Purchase Now →
+      </button>
+
+      <button class="modal-btn secondary" onclick="closeModal()">
+        Maybe Later
+      </button>
     `;
   }
+
   document.getElementById('modal').classList.add('show');
 }
 
@@ -261,13 +293,33 @@ function closeModal() {
 function fakePurchase() {
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-icon">🎉</div>
+
     <h3>Purchase Successful!</h3>
-    <p>You now have full access to AP Calculus BC. Good luck on your exam!</p>
-    <button class="modal-btn" onclick="closeModal()">Start Learning</button>
+
+    <p>
+      You now have access to this unit.
+    </p>
+
+    <button class="modal-btn" onclick="closeModal()">
+      Start Learning
+    </button>
   `;
 }
 
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
+document.addEventListener('DOMContentLoaded', function () {
+
+  const modal = document.getElementById('modal');
+
+  if (!modal) {
+    console.error('modal not found');
+    return;
+  }
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
 });
 </script>
