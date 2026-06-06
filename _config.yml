@@ -59,3 +59,7 @@ tag_archive:
   path: /tags/
 after_footer_scripts:
   - /assets/js/nav-color.js
+collections:
+  courses:
+    output: true
+    permalink: /courses/:name/
