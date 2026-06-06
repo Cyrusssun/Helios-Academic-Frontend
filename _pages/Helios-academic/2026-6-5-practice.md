@@ -245,6 +245,11 @@ html,body{background:var(--bg);font-family:-apple-system,'Segoe UI',sans-serif;}
 </div>
 
 <script>
+// 获取 baseurl 前缀
+function getBaseUrl() {
+  return '{{ site.baseurl }}';
+}
+
 const QUESTIONS = {
   'calc-bc': {
     name: 'AP Calculus BC',
@@ -299,6 +304,10 @@ function setSubject(key, btn) {
   document.querySelectorAll('.pr-subject-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderAll();
+  
+  // 更新 URL 参数，保留 baseurl 路径
+  const url = getBaseUrl() + '/practice/?subject=' + key;
+  window.history.pushState({}, '', url);
 }
 
 function toggleDiff(diff, chip) {
@@ -424,14 +433,18 @@ function goPage(p) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Init
+// Init - 从 URL 参数读取 subject，并正确处理 baseurl
 const params = new URLSearchParams(window.location.search);
 const subParam = params.get('subject');
 if (subParam && QUESTIONS[subParam]) {
   currentSubject = subParam;
-  document.querySelectorAll('.pr-subject-btn').forEach((b,i) => {
+  document.querySelectorAll('.pr-subject-btn').forEach((btn, idx) => {
     const keys = ['calc-bc','calc-ab','stats','physics','chem','bio','csa','ush','lang','econ'];
-    if (keys[i] === subParam) b.classList.add('active'); else b.classList.remove('active');
+    if (keys[idx] === subParam) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
   });
 }
 renderAll();

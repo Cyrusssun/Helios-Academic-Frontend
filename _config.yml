@@ -1,4 +1,7 @@
 repository: Cyrusssun/Helios-Academic-Frontend
+url: "https://cyrusssun.github.io"
+baseurl: "/Helios-Academic-Frontend"
+
 title: "Helios Academy Practice Portal"
 email:
 description: "AP exam practice questions, instant feedback, and performance analytics for serious students."
@@ -30,9 +33,7 @@ author:
 
 footer:
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+    # 已删除 GitHub 链接，如需添加其他链接按格式写在这里
 
 defaults:
   - scope:
