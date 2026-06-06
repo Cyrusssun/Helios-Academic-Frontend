@@ -64,11 +64,8 @@ title: AP Calculus BC
   left: 0;
   width: 100vw;
   height: 100vh;
-
   background: rgba(0,0,0,.55);
-
   z-index: 999999 !important;
-
   align-items: center;
   justify-content: center;
 }
@@ -79,27 +76,65 @@ title: AP Calculus BC
 
 .course-modal {
   background: #fff !important;
-
   width: 420px;
   max-width: 90vw;
-
   padding: 40px 36px;
-
   border-radius: 16px;
-
   position: relative;
-
   z-index: 1000000 !important;
-
   display: block !important;
-
   opacity: 1 !important;
-
   visibility: visible !important;
-
   box-shadow: 0 20px 60px rgba(0,0,0,.25);
-
   text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.modal-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.modal-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 24px;
+  background: #1a56db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-btn.secondary {
+  background: #f1f5f9;
+  color: #334155;
+  margin-left: 12px;
+}
+
+.modal-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a56db;
+  margin: 16px 0 4px;
+}
+
+.modal-price-sub {
+  font-size: 12px;
+  color: #64748b;
 }
 </style>
 
@@ -230,6 +265,11 @@ title: AP Calculus BC
 </div>
 
 <script>
+// 获取 baseurl 前缀
+function getBaseUrl() {
+  return '{{ site.baseurl }}';
+}
+
 const loggedIn = false; // false=未登录，true=已登录
 
 function openUnit(unitName) {
@@ -243,40 +283,31 @@ function openUnit(unitName) {
   if (!loggedIn) {
     content.innerHTML = `
       <div class="modal-icon">🔒</div>
-
       <h3>Login Required</h3>
-
       <p>
         Please log in or create an account to purchase
         <strong>${unitName}</strong>.
       </p>
-
-      <a href="/login/" class="modal-btn">
+      <a href="${getBaseUrl()}/login/" class="modal-btn">
         Log In
       </a>
     `;
   } else {
     content.innerHTML = `
       <div class="modal-icon">🎓</div>
-
       <h3>Unlock ${unitName}</h3>
-
       <p>
         Purchase this unit and get lifetime access.
       </p>
-
       <div class="modal-price">
         $9.99
       </div>
-
       <div class="modal-price-sub">
         One-time purchase · Lifetime access
       </div>
-
       <button class="modal-btn" onclick="fakePurchase()">
         Purchase Now →
       </button>
-
       <button class="modal-btn secondary" onclick="closeModal()">
         Maybe Later
       </button>
@@ -293,13 +324,10 @@ function closeModal() {
 function fakePurchase() {
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-icon">🎉</div>
-
     <h3>Purchase Successful!</h3>
-
     <p>
       You now have access to this unit.
     </p>
-
     <button class="modal-btn" onclick="closeModal()">
       Start Learning
     </button>
@@ -307,19 +335,15 @@ function fakePurchase() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-
   const modal = document.getElementById('modal');
-
   if (!modal) {
     console.error('modal not found');
     return;
   }
-
   modal.addEventListener('click', function(e) {
     if (e.target === modal) {
       closeModal();
     }
   });
-
 });
 </script>
