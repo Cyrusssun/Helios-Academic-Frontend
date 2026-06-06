@@ -1,14 +1,14 @@
 ---
 ---
-.skip-links {
-  position: absolute !important;
-  left: -9999px !important;
-}
+@charset "utf-8";
+@import "minimal-mistakes/skins/default";
+@import "minimal-mistakes";
 
 .masthead,
 .masthead__inner-wrap,
 .greedy-nav {
   background: #1e3a8a !important;
+  border-bottom: none !important;
 }
 
 .greedy-nav a,
@@ -26,7 +26,4 @@
 
 .search__toggle {
   color: #ffffff !important;
-}
-.search-content {
-  display: none !important;
 }
