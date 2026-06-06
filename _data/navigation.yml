@@ -3,8 +3,6 @@ main:
     url: /courses/
   - title: "Practice"
     url: /practice/
-  - title: "Categories"
-    url: /categories/
   - title: "About"
     url: /about/
   - title: "Login"

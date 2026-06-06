@@ -13,6 +13,7 @@ paginate_path: /page:num/
 
 include:
   - _pages
+  - _pages/Helios-academic
 
 plugins:
   - jekyll-paginate
