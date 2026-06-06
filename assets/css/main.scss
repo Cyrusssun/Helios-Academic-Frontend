@@ -1,21 +1,32 @@
 ---
 ---
+.skip-links {
+  position: absolute !important;
+  left: -9999px !important;
+}
+
 .masthead,
 .masthead__inner-wrap,
-.skip-links { display: none !important; }
 .greedy-nav {
   background: #1e3a8a !important;
 }
+
 .greedy-nav a,
 .site-title {
   color: #ffffff !important;
 }
+
 .greedy-nav a:hover {
   color: #a5b4fc !important;
 }
+
 .greedy-nav__toggle svg {
   fill: #ffffff !important;
 }
+
 .search__toggle {
   color: #ffffff !important;
+}
+.search-content {
+  display: none !important;
 }
